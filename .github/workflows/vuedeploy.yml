@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set up Node.js 20
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -30,6 +35,11 @@ jobs:
     needs: build  # 需要等待构建作业完成
 
     steps:
+    - name: Set up Node.js 20
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+
     - name: Checkout code
       uses: actions/checkout@v2
 
