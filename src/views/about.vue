@@ -1,6 +1,6 @@
 <script setup lang="ts">
-</script>
 
+</script>
 <template>
-  <RouterView></RouterView>
+    about
 </template>
