@@ -26,7 +26,6 @@ jobs:
 
       - name: Clean and build
         run: |
-          pnpm run clean  # 清理旧文件
           pnpm run build  # 重新运行构建过程
 
       - name: Archive production artifacts
