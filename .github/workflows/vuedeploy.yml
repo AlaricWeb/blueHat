@@ -3,7 +3,7 @@ name: Vue Deploy
 on:
   push:
     branches:
-      - master  # 触发分支改为 master
+      - master
 
 jobs:
   build:
@@ -35,16 +35,13 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build  # 需要等待构建作业完成
+    needs: build
 
     steps:
     - name: Set up Node.js 20
       uses: actions/setup-node@v2
       with:
         node-version: '20'
-
-    - name: Install pnpm
-      run: npm install -g pnpm
 
     - name: Checkout code
       uses: actions/checkout@v2
@@ -58,6 +55,6 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.6
       with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}  # 需要创建一个 GitHub Personal Access Token，并将其存储在仓库的 secrets 中
-        BRANCH: gh-pages  # 部署到 GitHub Pages 的分支
-        FOLDER: dist  # 要部署的文件夹路径
+        token: ${{ secrets.ACCESS_TOKEN }}
+        branch: gh-pages
+        folder: dist
