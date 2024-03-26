@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 import Layout from "@/layout/index.vue";
-
 const viewsPath = import.meta.glob(["@/views/**/*.vue", "!@/views/*.vue"]);
-
 const autoView: RouteRecordRaw[] = [];
 for (const [path, resovleImport] of Object.entries(viewsPath)) {
   const routePath = path.replace(/\/src\/views|\/index\.vue|\.vue/gi, "");
@@ -12,6 +10,8 @@ for (const [path, resovleImport] of Object.entries(viewsPath)) {
     component: resovleImport,
   });
 }
+console.log(autoView);
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -20,6 +20,11 @@ const router = createRouter({
       name: "home",
       component: Layout,
       children: [...autoView],
+    },
+    {
+      name: "login",
+      path: "/login",
+      component: () => import("@/views/login.vue"),
     },
   ],
 });
