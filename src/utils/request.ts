@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
-
 interface ApiResponse<T> {
   msg: string;
   data?: T; // 数据可能不存在，所以使用可选属性
