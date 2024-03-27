@@ -5,6 +5,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import MockDevServer from "vite-plugin-mock-dev-server";
+import path from "node:path";
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, "");
@@ -20,12 +21,19 @@ export default defineConfig(({ command, mode }) => {
       vue(),
       MockDevServer({
         prefix: env.VITE_API_URL,
-        log: "info",
+        log: "debug",
         reload: true,
+        wsPrefix: ["/socket.io"],
         cors: true,
-        build: {
-          serverPort: 7501,
+        formidableOptions: {
+          // 配置上传资源存放目录
+          uploadDir: path.join(process.cwd(), "example/uploads"),
+          // 可修改上传资源名称
+          filename: (_name: any, _ext: any, part: { originalFilename: any }) => {
+            return part.originalFilename!;
+          },
         },
+        build: true,
       }),
       AutoImport({
         resolvers: [ElementPlusResolver()],
