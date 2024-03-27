@@ -8,7 +8,7 @@ interface ApiResponse<T> {
 
 // 创建一个 Axios 实例
 const api: AxiosInstance = axios.create({
-  baseURL: "http://your-api-url.com",
+  baseURL: import.meta.env.VITE_BASE_URL,
 });
 
 // 添加请求拦截器

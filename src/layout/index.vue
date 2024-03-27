@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import request from "@/utils/request"
+import requset from "@/utils/request"
+const userinfo = async () => {
+    const user = requset({ url: "/user", method: "get" })
+    console.log(user);
+}
 import { onMounted } from 'vue';
-console.log("hello world");
 onMounted(() => {
-
+    userinfo();
 })
 </script>
 <template>
