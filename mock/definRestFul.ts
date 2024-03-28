@@ -90,6 +90,10 @@ export function defineRestFul<T extends { id: number }>(
     { url: `/${name}`, method: "POST", body: handleRoute(operations.createOne, data) },
     { url: `/${name}/:id`, method: "DELETE", body: handleRoute(operations.deleteOne, data) },
   ];
+
   router.push(...restAPIs);
   return restAPIs;
+}
+export function query<T>(where: Partial<T>): T[] {
+  return [];
 }
