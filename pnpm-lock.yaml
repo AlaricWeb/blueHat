@@ -22,12 +22,18 @@ dependencies:
     version: 4.3.0(vue@3.4.21)
 
 devDependencies:
+  '@types/mockjs':
+    specifier: ^1.0.10
+    version: 1.0.10
   '@types/node':
     specifier: ^20.11.30
     version: 20.11.30
   '@vitejs/plugin-vue':
     specifier: ^5.0.4
     version: 5.0.4(vite@5.2.6)(vue@3.4.21)
+  fast-glob:
+    specifier: ^3.3.2
+    version: 3.3.2
   mockjs:
     specifier: ^1.1.0
     version: 1.1.0
@@ -504,6 +510,10 @@ packages:
   /@types/lodash@4.17.0:
     resolution: {integrity: sha512-t7dhREVv6dbNj0q17X12j7yDG4bD/DHYX7o5/DbDxobP0HnGPgpRz2Ej77aL7TZT3DSw13fqUTj8J4mMnqa7WA==}
     dev: false
+
+  /@types/mockjs@1.0.10:
+    resolution: {integrity: sha512-SXgrhajHG7boLv6oU93CcmdDm0HYRiceuz6b+7z+/2lCJPTWDv0V5YiwFHT2ejE4bQqgSXQiVPQYPWv7LGsK1g==}
+    dev: true
 
   /@types/node@20.11.30:
     resolution: {integrity: sha512-dHM6ZxwlmuZaRmUPfv1p+KrdD1Dci04FbdEm/9wEMouFqxYoFl5aMkt0VMAUtYRQDyYvD41WJLukhq/ha3YuTw==}

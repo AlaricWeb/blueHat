@@ -6,11 +6,12 @@
     "moduleResolution": "bundler",
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
+    "noImplicitThis": false,
     "strict": true,
     "baseUrl": ".",
     "paths": {
       "!/*": ["./mock/*"]
     }
   },
-  "include": ["vite.config.ts", "mock/**/*"]
+  "include": ["vite.config.ts", "mock/**/*.ts", "test/**/*.spec.ts"]
 }

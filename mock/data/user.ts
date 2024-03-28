@@ -1,6 +1,13 @@
-import { defineMockData } from "vite-plugin-mock-dev-server";
-
-export const user = defineMockData("user", [
-  { id: "1", title: "title1", content: "content1" },
-  { id: "2", title: "title2", content: "content2" },
-]);
+import { defineData } from "!/config";
+export const menu = defineData("menu", {
+  title: "",
+});
+export const role = defineData("role", {
+  name: "@csentence(3)",
+});
+export const user = defineData("user", {
+  name: "@cname",
+  avatar: "@image(100x100)",
+  account: /\d{5,10}\w{10}/,
+  "system_role_id|1-10": 1,
+});
