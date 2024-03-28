@@ -1,4 +1,6 @@
+
 import axios, { AxiosInstance } from "axios";
+
 // 创建一个 Axios 实例
 const api: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
