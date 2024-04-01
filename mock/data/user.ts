@@ -1,7 +1,21 @@
 import { defineData } from "!/config";
-export const menu = defineData("menu", {
-  title: "",
-});
+export const menu = defineData("menu", [
+  {
+    id: 1,
+    title: "控制台",
+    route_path: '/console'
+  },
+  {
+    id: 2,
+    title: "工单管理",
+    route_path: "/workorder"
+  },
+  {
+    id: 3,
+    title: "设备管理",
+    route_path: "/device"
+  },
+], false);
 export const role = defineData("role", {
   name: "@csentence(3)",
 });

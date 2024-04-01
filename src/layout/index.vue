@@ -1,14 +1,22 @@
 <script setup lang="ts">
 import requset from "@/utils/request"
 import { onMounted } from 'vue';
-const userinfo = async () => {
-    const user = await requset({ url: "/user", method: "get" })
-    console.log(user);
-}
+import NavMenu from "@/layout/NavMenu.vue"
 
 onMounted(() => {
-    userinfo();
 })
 </script>
+
 <template>
+    <ElContainer>
+        <ElAside>fsfsdf</ElAside>
+        <ElContainer>
+            <ElHeader>
+                <NavMenu />
+            </ElHeader>
+            <ElMain>
+                <RouterView></RouterView>
+            </ElMain>
+        </ElContainer>
+    </ElContainer>
 </template>

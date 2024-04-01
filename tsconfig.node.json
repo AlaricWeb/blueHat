@@ -9,9 +9,6 @@
     "noImplicitThis": false,
     "strict": true,
     "baseUrl": ".",
-    "paths": {
-      "!/*": ["./mock/*"]
-    }
   },
-  "include": ["vite.config.ts", "mock/**/*.ts", "test/**/*.spec.ts"]
+  // "include": ["vite.config.ts", "mock/**/*.ts", "test/**/*.spec.ts"]
 }

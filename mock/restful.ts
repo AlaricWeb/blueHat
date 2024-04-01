@@ -84,12 +84,21 @@ export function defineRestFul<T extends { id: number }>(
 ) {
   const operations = mergeOperations(defaultOperations, customOperations);
   const restAPIs: MockHttpItem[] = [
-    { url: `/${name}`, method: "GET", body: handleRoute(operations.getAll, data) },
-    { url: `/${name}/:id`, method: "GET", body: handleRoute(operations.getOne, data) },
-    { url: `/${name}/:id`, method: "PUT", body: handleRoute(operations.updateOne, data) },
-    { url: `/${name}`, method: "POST", body: handleRoute(operations.createOne, data) },
-    { url: `/${name}/:id`, method: "DELETE", body: handleRoute(operations.deleteOne, data) },
+    { url: `${name}`, method: "GET", body: handleRoute(operations.getAll, data) },
+    { url: `${name}/:id`, method: "GET", body: handleRoute(operations.getOne, data) },
+    { url: `${name}/:id`, method: "PUT", body: handleRoute(operations.updateOne, data) },
+    { url: `${name}`, method: "POST", body: handleRoute(operations.createOne, data) },
+    { url: `${name}/:id`, method: "DELETE", body: handleRoute(operations.deleteOne, data) },
   ];
   router.push(...restAPIs);
   return restAPIs;
+}
+
+export function defineRequest<T extends MockHttpItem['body']>(name: string, data: MockHttpItem['body'], method: MockHttpItem["method"] = "GET", param: Partial<MockHttpItem> = {}) {
+  const result = Object.assign({
+    url: name,
+    method,
+    body: data
+  }, param)
+  return router.push(result);
 }
