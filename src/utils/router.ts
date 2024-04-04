@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
+import NotFound from "@/views/notfound.vue"
+
 import Layout from "@/layout/index.vue";
 const viewsPath = import.meta.glob(["@/views/**/*.vue", "!@/views/*.vue"]);
 const autoView: RouteRecordRaw[] = [];
@@ -20,11 +22,7 @@ const router = createRouter({
       component: Layout,
       children: [
         ...autoView,
-        {
-          name: "notfound",
-          path: "/match/*",
-          component: () => import("@/views/notfound.vue"),
-        },
+        { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
       ],
     },
     {

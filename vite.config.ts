@@ -5,6 +5,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import MockDevServer from "vite-plugin-mock-dev-server";
+
 import path from "node:path";
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
