@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
 </script>
 <template>
-    about
+    关于我们
 </template>
