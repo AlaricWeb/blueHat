@@ -5,8 +5,8 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import MockDevServer from "vite-plugin-mock-dev-server";
-
 import path from "node:path";
+import { Plugin } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, "");
@@ -20,6 +20,7 @@ export default defineConfig(({ command, mode }) => {
     },
     plugins: [
       vue(),
+      
       MockDevServer({
         prefix: env.VITE_API_URL,
         log: "debug",

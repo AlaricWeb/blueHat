@@ -84,7 +84,7 @@ export function defineRestFul<T extends { id: number }>(
 ) {
   const operations = mergeOperations(defaultOperations, customOperations);
   const restAPIs: MockHttpItem[] = [
-    { url: `${name}`, method: "GET", body: handleRoute(operations.getAll, data) },
+    { url: `${name}`,delay:1000, method: "GET", body: handleRoute(operations.getAll, data) },
     { url: `${name}/:id`, method: "GET", body: handleRoute(operations.getOne, data) },
     { url: `${name}/:id`, method: "PUT", body: handleRoute(operations.updateOne, data) },
     { url: `${name}`, method: "POST", body: handleRoute(operations.createOne, data) },
