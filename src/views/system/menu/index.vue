@@ -3,7 +3,7 @@ import { VxeTable, VxePager, VxeColumn } from "vxe-table";
 import request from "@/utils/request";
 import { onMounted, reactive } from "vue";
 import { Icon } from "@iconify/vue";
-import {useRouter} from "vue-router"
+import { useRouter } from "vue-router"
 const router = useRouter();
 const pageConfig = reactive({
   query: {
@@ -42,24 +42,8 @@ onMounted(() => {
     <VxeColumn title="created_at" field="created_at"></VxeColumn>
     <VxeColumn title="updated_at" field="updated_at"></VxeColumn>
   </VxeTable>
-  <VxePager
-    background
-    v-model:current-page="pageConfig.query.page"
-    v-model:page-size="pageConfig.query.limit"
-    align="right"
-    @page-change="fetch(pageConfig.query)"
-    :total="pageConfig.total"
-    :layouts="[
-      'Home',
-      'PrevJump',
-      'PrevPage',
-      'JumpNumber',
-      'NextPage',
-      'NextJump',
-      'End',
-      'Sizes',
-      'FullJump',
-      'Total',
-    ]">
+  <VxePager background v-model:current-page="pageConfig.query.page" v-model:page-size="pageConfig.query.limit"
+    align="right" @page-change="fetch(pageConfig.query)" :total="pageConfig.total"
+    :layouts="['Home', 'PrevJump', 'PrevPage', 'JumpNumber', 'NextPage', 'NextJump', 'End', 'Sizes', 'FullJump', 'Total',]">
   </VxePager>
 </template>

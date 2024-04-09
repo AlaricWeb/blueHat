@@ -14,11 +14,16 @@ const formData = reactive({
     password: '123456',
     code: ''
 })
+
 const onSubmit = async () => {
     formData.loading = true;
-    await userStore.password(formData);
-    formData.loading = false;
-    router.push("/")
+    try {
+        await userStore.password(formData);
+        formData.loading = false;
+        router.push("/")
+    } catch (err) {
+        formData.loading = false;
+    }
 }
 </script>
 
