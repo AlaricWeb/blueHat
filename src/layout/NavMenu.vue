@@ -2,7 +2,7 @@
 import { ElIcon, ElMenuItem, ElSubMenu } from "element-plus";
 import { h } from "vue";
 import { Document, Folder } from "@element-plus/icons-vue";
-import {Icon} from "@iconify/vue"
+import { Icon } from "@iconify/vue"
 export interface MenuItem {
   name: string;
   route_path: string;
@@ -13,7 +13,7 @@ const model = defineModel<Array<MenuItem>>({ required: true });
 interface Props {
   option: any[];
 }
-const TreeMenu = (props: Props ) => {
+const TreeMenu = (props: Props) => {
   return props.option.map((item) => {
     if (item.children?.length) {
       return h(
@@ -59,23 +59,13 @@ const TreeMenu = (props: Props ) => {
 };
 </script>
 <template>
-  <ElMenu
-    unique-opened
-    router>
+  <ElMenu unique-opened router>
     <TreeMenu :option="model"></TreeMenu>
   </ElMenu>
 </template>
 <style lang="scss" scoped>
 .el-menu {
+  width: 220px;
   border: none;
-  background-color: #000;
-  height: 100vh;
-  width: 220px;
-}
-.layout-menu {
-  width: 220px;
-}
-.collapse {
-  width: auto;
 }
 </style>

@@ -4,7 +4,9 @@ import request from "@/utils/request";
 import { onMounted, reactive } from "vue";
 import { Icon } from "@iconify/vue";
 import { useRouter } from "vue-router"
+
 const router = useRouter();
+
 const pageConfig = reactive({
   query: {
     page: 1,
@@ -14,17 +16,23 @@ const pageConfig = reactive({
   loading: false,
   list: [],
 });
+
 type Query = {
   page: number;
   limit: number;
 };
+
 const fetch = async (where: Query | null = null) => {
-  const params = where || {};
-  pageConfig.loading = true;
-  pageConfig.list = await request.get(router.currentRoute.value.fullPath, { params });
-  pageConfig.loading = false;
+  try {
+    const params = where || {};
+    pageConfig.loading = true;
+    pageConfig.list = await request.get(router.currentRoute.value.fullPath, { params });
+  } catch (error) {
+    pageConfig.loading = false;
+  }
   return true;
 };
+
 onMounted(() => {
   fetch();
 });
