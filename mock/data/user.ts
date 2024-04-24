@@ -1,21 +1,19 @@
-import { defineRestFul } from "!/defineRestFul";
+import { defineRequest, defineRestFul } from "!/defineRestFul";
+import menu from "./menu.json";
 defineRestFul("/user", {
   name: "@cname",
 });
-defineRestFul("/menu", [
-  {
-    id: "@increment",
-    title: "控制台",
-    route_path: "/console",
+defineRestFul("/system/menu", menu);
+defineRequest({
+  url: "/login/password",
+  method: "POST",
+  body(request) {
+    return {
+      code: 0,
+      msg: "登录成功",
+      result: {
+        auth: "fsfsf",
+      },
+    };
   },
-  {
-    id: "@increment",
-    title: "控制台",
-    route_path: "/console",
-  },
-  {
-    id: "@increment",
-    title: "控制台",
-    route_path: "/console",
-  },
-]);
+});

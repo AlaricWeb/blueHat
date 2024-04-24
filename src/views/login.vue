@@ -7,11 +7,11 @@ import { useRouter } from "vue-router"
 const router = useRouter();
 const userStore = useUserStore();
 const formRef = ref<FormInstance | null>(null)
-
 const formData = reactive({
-    account: 'admin',
+
+    account: '',
     loading: false,
-    password: '123456',
+    password: '',
     code: ''
 })
 
@@ -42,15 +42,15 @@ const onSubmit = async () => {
                     { required: true, message: '请输入密码', trigger: 'blur' },
                     { min: 6, max: 16, message: '长度在 6 到 16 个字符', trigger: 'blur' },
                 ]">
-                    <ElInput @keyup.enter.native="onSubmit" :prefix-icon="Lock" type="password"
-                        v-model="formData.password" :show-password="true" placeholder="请输入密码"></ElInput>
+                    <ElInput @keyup.enter.native="onSubmit" :prefix-icon="Lock" type="password" v-model="formData.password"
+                        :show-password="true" placeholder="请输入密码"></ElInput>
                 </ElFormItem>
                 <ElFormItem prop="code" :rules="[
                     { required: true, message: '请输入验证码', trigger: 'blur' },
                     { min: 4, max: 4, message: '请输入正确的验证码', trigger: 'blur' },
                 ]">
-                    <ElInput @keyup.enter.native="onSubmit" :prefix-icon="Unlock" type="password"
-                        v-model="formData.code" :show-password="true" placeholder="验证码"></ElInput>
+                    <ElInput @keyup.enter.native="onSubmit" :prefix-icon="Unlock" v-model="formData.code" placeholder="验证码">
+                    </ElInput>
                 </ElFormItem>
                 <ElFormItem>
                     <ElButton @keyup.enter.native="onSubmit" style="width: 100%;" type="primary" @click.stop="onSubmit">

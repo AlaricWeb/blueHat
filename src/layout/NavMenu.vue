@@ -59,7 +59,7 @@ const TreeMenu = (props: Props) => {
 };
 </script>
 <template>
-  <ElMenu unique-opened router>
+  <ElMenu unique-opened router background-color="#000000 ">
     <TreeMenu :option="model"></TreeMenu>
   </ElMenu>
 </template>
@@ -67,5 +67,6 @@ const TreeMenu = (props: Props) => {
 .el-menu {
   width: 220px;
   border: none;
+  height: 100vh;
 }
 </style>

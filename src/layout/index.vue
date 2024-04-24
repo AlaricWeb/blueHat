@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
 import NavMenu from "@/layout/NavMenu.vue"
 import Navication from "@/layout/Navication.vue"
 import { Icon } from "@iconify/vue"
 import useUserStore from "@/store/user"
 const userStore = useUserStore();
-onMounted(() => {
 
-})
 </script>
 <template>
     <ElContainer>
@@ -18,9 +15,12 @@ onMounted(() => {
             <ElHeader class="layout-header">
                 <div class="header">
                     <div class="left">
-                        <Icon icon="mi:arrow-up"></Icon>
+                        <Icon icon="mi:list"></Icon>
                     </div>
                     <div class="right">
+                        <ElIcon size="40">
+                            <Icon icon="mi:megaphone"></Icon>
+                        </ElIcon>
                         <ElAvatar src="" :size="35"></ElAvatar>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ onMounted(() => {
             font-size: 1.5em;
 
             svg {
-                color: #888;
+
                 cursor: pointer;
             }
         }
@@ -58,7 +58,12 @@ onMounted(() => {
             flex-basis: auto;
             display: flex;
             padding-right: 10px;
+            align-items: center;
             flex-direction: row-reverse;
+
+            * {
+                margin: 0 5px;
+            }
         }
 
     }

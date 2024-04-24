@@ -1,4 +1,3 @@
-
 import axios, { AxiosInstance } from "axios";
 
 // 创建一个 Axios 实例
@@ -15,7 +14,7 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   ({ data }) => {
     // 对响应数据做些什么
-    return data;
+    return data.result;
   },
   (error: any) => {
     return Promise.reject(new Error("网络错误"));
